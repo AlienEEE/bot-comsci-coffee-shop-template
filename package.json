@@ -1,0 +1,20 @@
+{
+  "name": "bot-comsci-coffee-shop",
+  "version": "1.0.0",
+  "description": "Webhook for Line chatbot and Backend for LIFF - Comsci Coffee Shop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kesinee Boonchuay",
+  "license": "ISC",
+  "dependencies": {
+    "@line/bot-sdk": "^7.4.0",
+    "aimlparser": "^1.0.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "firebase-admin": "^10.0.1",
+    "request": "^2.88.2"
+  }
+}

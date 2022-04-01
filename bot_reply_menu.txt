@@ -1,0 +1,70 @@
+//-----------------BOT-----------------
+app.post('/bot/api',(req, res) => {
+  
+  
+  // req.body.events should be an array of events
+  if (!Array.isArray(req.body.events)) {
+    return res.status(500).end();
+  }
+
+  if (req.body.events.length==0){
+    return res.status(200).end();
+  }
+  
+
+  let type=req.body.events[0].type
+  let replyToken=req.body.events[0].replyToken
+  let userId=req.body.events[0].source.userId
+
+  switch (type) {
+
+      case 'message': 
+        
+        let messageType=req.body.events[0].message.type
+
+        switch (messageType){
+
+          case 'text':
+
+            let text=req.body.events[0].message.text
+            
+            if(text === 'แสดงเมนูของร้าน') {
+              client.replyMessage(
+                replyToken, xxx )
+            }
+    
+            break;
+
+
+      default:
+
+    }
+});
+
+//----------------------------------------
+
+//----------แสดงเมนูของร้าน-----
+{
+    "type": "template",
+    "altText": "เลือกเมนูกาแฟหรือเบเกอรี่",
+    "template": {
+      "type": "image_carousel",
+      "columns": [
+        {
+          "imageUrl": "https://raw.githubusercontent.com/kesinee-bo/sp01/master/LIFF/ShowCoffeeMenu.png",
+          "action": {
+              "type": "uri",
+              "label": "Coffee Menu",
+              "uri": "https://liff.line.me/${PROCESS.env.LIFF_ID_COFFEE_BAKERY}?tab=coffee"
+          }            
+        },
+        {
+          "imageUrl": "https://raw.githubusercontent.com/kesinee-bo/sp01/master/LIFF/ShowBakeryMenu.jpg",
+          "action": {
+            "type": "uri",
+            "label": "Bakery Menu",
+            "uri": "https://liff.line.me/${PROCESS.env.LIFF_ID_COFFEE_BAKERY}?tab=bakery"
+          }
+        }
+      ]
+    }
